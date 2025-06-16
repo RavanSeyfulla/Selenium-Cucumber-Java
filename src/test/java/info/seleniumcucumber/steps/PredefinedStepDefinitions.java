@@ -6,57 +6,72 @@ import io.cucumber.java.en.Then;
 
 import java.io.IOException;
 
+// Step definitions for common navigation actions in Cucumber tests
+// This class defines reusable navigation steps for use in .feature files.
 public class PredefinedStepDefinitions extends AbstractPage {
-    // Navigation Steps
 
-    // Step to navigate to specified URL
+    // ==============================
+    // Navigation Steps
+    // ==============================
+
+    // Step: Navigate to a given URL
+    // Example: Then I navigate to "https://example.com"
     @Then("^I navigate to \"([^\"]*)\"$")
     public void navigate_to(String link) {
-        navigationObj.navigateTo(link);
+        navigationObj.navigateTo(link);  // Custom method to open URL
     }
 
-    // Step to navigate forward
+    // Step: Navigate forward in browser history
+    // Example: Then I navigate forward
     @Then("^I navigate forward")
     public void navigate_forward() {
-        navigationObj.navigate("forward");
+        navigationObj.navigate("forward"); // Custom logic to move forward
     }
 
-    // Step to navigate backward
+    // Step: Navigate backward in browser history
+    // Example: Then I navigate back
     @Then("^I navigate back")
     public void navigate_back() {
-        navigationObj.navigate("back");
+        navigationObj.navigate("back"); // Custom logic to go back
     }
 
-    // steps to refresh page
+    // Step: Refresh the current page
+    // Example: Then I refresh page
     @Then("^I refresh page$")
     public void refresh_page() {
-        getDriver().navigate().refresh();
+        getDriver().navigate().refresh(); // Uses Selenium WebDriver's built-in method
     }
 
-    // Switch between windows
+    // ==============================
+    // Window Handling Steps
+    // ==============================
 
-    // Switch to new window
+    // Step: Switch to newly opened browser window
+    // Example: Then I switch to new window
     @Then("^I switch to new window$")
     public void switch_to_new_window() {
-        navigationObj.switchToNewWindow();
+        navigationObj.switchToNewWindow(); // Custom logic for switching to new window
     }
 
-    // Switch to old window
+    // Step: Switch back to the original (previous) window
+    // Example: Then I switch to previous window
     @Then("^I switch to previous window$")
     public void switch_to_old_window() {
-        navigationObj.switchToOldWindow();
+        navigationObj.switchToOldWindow(); // Custom logic for switching back
     }
 
-    // Switch to new window by window title
+    // Step: Switch to a window based on its title
+    // Example: Then I switch to window having title "Dashboard"
     @Then("^I switch to window having title \"(.*?)\"$")
     public void switch_to_window_by_title(String windowTitle) throws Exception {
-        navigationObj.switchToWindowByTitle(windowTitle);
+        navigationObj.switchToWindowByTitle(windowTitle); // Matches and switches by title
     }
 
-    // Close new window
+    // Step: Close the newly opened window (typically used after switching)
+    // Example: Then I close new window
     @Then("^I close new window$")
     public void close_new_window() {
-        navigationObj.closeNewWindow();
+        navigationObj.closeNewWindow(); // Custom method to close current window and switch back
     }
 
     // Switch between frame
